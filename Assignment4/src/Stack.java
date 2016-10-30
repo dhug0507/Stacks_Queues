@@ -3,6 +3,7 @@ import java. util.*;
  * Daniel Hug
  * Assignment 4 
  * ICSI 213
+ * This program is for a stack based on a linked list.
  */
 public class Stack {
 	public Node top = null; //Top of the stack.
