@@ -59,6 +59,24 @@ public class Stack {
 			return top.value;
 	}
 	
+	/**
+	 * The toString method computes a string
+	 * representation of the contents of the stack.
+	 * @return The string representation of the stack
+	 * contents.
+	 */
+	
+	public String toString(){
+		StringBuilder sBuilder = new StringBuilder();
+		Node p = top;
+		while(p != null){
+			sBuilder.append(p.value);
+			p = p.next;
+			if (p != null)
+				sBuilder.append("\n");
+		}
+			return sBuilder.toString();
+	}
 
 }
 
