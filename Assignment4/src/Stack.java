@@ -78,6 +78,26 @@ public class Stack {
 		}
 			return sBuilder.toString();
 	}
+	
+	public static Stack stackToStack(Stack a, Stack b){
+		Stack c = new Stack();
+		while(a != null){
+			b.push(a.pop());
+			
+		}
+		return b;
+	}
+	
+	public static Queue stackToQueue(Stack stack){
+		Stack reverse = new Stack();
+		Queue q = new Queue();
+		while(!stack.empty()){
+			reverse.push(stack.pop());
+			q.enQueue(reverse.pop());
+			
+		}
+		return q;
+	}
 
 }
 

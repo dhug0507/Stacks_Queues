@@ -13,9 +13,11 @@
 public class Node {
 	String value;
 	Node next;
+	
 	Node(String val, Node n){
 		value = val;
 		next = n;
+		
 	}
 
 }
