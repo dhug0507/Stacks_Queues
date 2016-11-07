@@ -37,12 +37,12 @@ public class Stack {
 	 */
 	
 	public String pop(){
-		if(empty())
+		if(empty())//Checks if empty
 			throw new EmptyStackException();
 		else{
-			String retValue = top.value;
-			top = top.next;
-			return retValue;
+			String retValue = top.value; //Stores the current top in retValue
+			top = top.next; //changes the top of the stack to the next in line
+			return retValue; //returns the value that got removed
 		}
 	}
 	
@@ -57,6 +57,7 @@ public class Stack {
 		if(empty())
 			throw new EmptyStackException();
 		else 
+			//returns the top of the stack.
 			return top.value;
 	}
 	
@@ -79,24 +80,50 @@ public class Stack {
 			return sBuilder.toString();
 	}
 	
-	public static Stack stackToStack(Stack a, Stack b){
-		Stack c = new Stack();
-		while(a != null){
-			b.push(a.pop());
-			
-		}
-		return b;
-	}
-	
+
+	/**
+	 * The stackToQueue method copies the contents of 
+	 * a stack to a queue
+	 * @param stack
+	 * @return q the queue that added the contents of
+	 * the stack
+	 */
 	public static Queue stackToQueue(Stack stack){
 		Stack reverse = new Stack();
 		Queue q = new Queue();
 		while(!stack.empty()){
+			//reverses the stack and adds it to another stack
 			reverse.push(stack.pop());
-			q.enQueue(reverse.pop());
+			//adds the contents of the stack reverse to a queue
+			q.enQueue(reverse.pop()); 
 			
 		}
 		return q;
+	}
+	
+	/**
+	 * The stackToStack method copies the
+	 * contents of a stack to another stack.
+	 * @param stack
+	 * @return stackTwo the copy of the original stack.
+	 */
+	public static Stack stackToStack(Stack stack){
+		Stack stackTwo = new Stack();
+		Stack stackTemp = new Stack();
+		
+		//Pushes the values of the original stack into
+		//a temporary stack in reverse order.
+		while(!stack.empty()){
+			stackTemp.push(stack.pop());
+			
+		}
+		//Pushes the values of the temporary stack
+		//into the second stack.
+		while(!stackTemp.empty()){
+			stackTwo.push(stackTemp.pop());
+		}
+		//returns the second stack
+		return stackTwo;
 	}
 
 }

@@ -56,7 +56,7 @@ public class Queue {
   * @Exception EmptyStackException When the
   * queue is empty.
   */
- public String dequeue(){
+ public String deQueue(){
   if (empty())
    throw new EmptyStackException();
   else{
@@ -86,6 +86,21 @@ public class Queue {
    return sBuilder.toString();
  
   }
+  
+	public static Stack queueToStack(Queue queue){
+		Stack reverse = new Stack();
+		Stack s = new Stack();
+		while(!queue.empty()){
+			//reverses the queue and adds it to a temporary stack.
+			reverse.push(queue.deQueue());			
+		}
+		while(!reverse.empty()){
+			//adds the contents of the temporary stack reversed to a stack.
+			s.push(reverse.pop()); 
+		}
+			
+		return s;
+	}
  
   
   
